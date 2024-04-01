@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ImageSlider from './Component/ImageSlider/ImageSlider';
 import './App.css';
+import HomePage from './Pages/Home';
+import Slider from './Component/AwesomeSlider/AwesomeSlider';
+import ImageSwiper from './Component/Swiper/Swiper';
+import ImageSwipers from './Component/SwiperReact/ImageSwiper';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route exact path='/' element={<HomePage/> } />
+          <Route exact path='/slick' element={<div className='slick'> <ImageSlider /> </div>} />
+          <Route exact path='/awesome' element={<div className='awesome'> <Slider/> </div>} />
+          <Route exact path='/swiper' element={<div className='swiper'> <ImageSwiper/> </div>} />
+          <Route exact path='/swiper-react' element={<div className='swiper'> <ImageSwipers/> </div>} />
+        </Routes>
+      </Router>
     </div>
   );
 }
